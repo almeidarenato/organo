@@ -1,6 +1,8 @@
 function Banner() {
     return (
-        <img className="banner" src='/imagens/banner.png' alt='Organo'/>
+        <header>
+            <img className="banner" src='/imagens/banner.png' alt='Organo'/>
+        </header>
     )
 }
 export default Banner;
