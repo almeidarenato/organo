@@ -1,5 +1,5 @@
-import Banner from './components/Banner/Banner';
-import Textfield from './components/Textfield/Textfield';
+import Banner from './components/Banner/';
+import Textfield from './components/Textfield/';
 function App() {
   return (
     <div className="App">
