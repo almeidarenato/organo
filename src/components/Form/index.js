@@ -1,44 +1,93 @@
-import './Form.css'
+import './Form.css';
+import React, { useState } from 'react';
 import Textfield from '../Textfield';
 import SelectionList from '../SelectionList';
-import Button from '../Button'
-import CardInput from '../CardInput'
-import {useState} from 'react'
+import Button from '../Button';
+import CardInput from '../CardInput';
 
+const teams = [
+  'Front-end',
+  'Back-end',
+  'Arquitetura',
+  'Devops',
+  'QA',
+  'Scrum'
+];
 
-const Form = (props,children) => {
-  const teams = [
-    'Front-end',
-    'Back-end',
-    'Arquitetura',
-    'Devops',
-    'QA',
-    'Scrum'
-  ]
+const Form = ({ onRegister }) => {
+  const [nome, setNome] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [time, setTime] = useState('');
+  const [imagem, setImagem] = useState('');
+  const [cartao, setCartao] = useState('');
+
   const onSave = (evt) => {
     evt.preventDefault();
-    console.log("Log de Form")
-    console.log(evt)
-    console.log("Foi submetido ",nome,cargo,time,imagem,cartao)
-  }
+    console.log("Log de Form");
+    console.log(evt);
+    console.log("Foi submetido ", nome, cargo, time, imagem, cartao);
+    onRegister({ nome, cargo, time, imagem, cartao });
+  };
 
-  const [nome,setNome] = useState('')
-  const [cargo,setCargo] = useState('')
-  const [time,setTime] = useState('')
-  const [imagem,setImagem] = useState('')
-  const [cartao,setCartao] = useState('')
+  const handleNomeChange = (valor) => {
+    setNome(valor);
+  };
+
+  const handleCargoChange = (valor) => {
+    setCargo(valor);
+  };
+
+  const handleImagemChange = (valor) => {
+    setImagem(valor);
+  };
+
+  const handleTimeChange = (valor) => {
+    setTime(valor);
+  };
+
+  const handleCartaoChange = (valor) => {
+    setCartao(valor);
+  };
 
   return (
     <section className='form'>
-        <form onSubmit={onSave}>
-            <h2>Preencha os dados abaixo para incluir um novo colaborador:</h2>
-            <Textfield label="Nome" placeholder="Digite seu Nome" required={true} value={nome} onChanged={valor => setNome(valor)}  />
-            <Textfield label="Cargo" placeholder="Digite seu cargo" required={true} value={cargo} onChanged={valor => setCargo(valor)}/>
-            <Textfield label="Imagem" placeholder="Informe a URL da imagem" value={imagem} onChanged={valor => setImagem(valor)}/>
-            <SelectionList label="Time" itens={teams} value={time} onChanged={valor => setTime(valor)} required={true}/>
-            <CardInput label="Cartão" placeholder="informe o seu cartao" value={cartao} onChanged={valor => setCartao(valor)} />
-            <Button>Criar Card</Button>
-        </form>
+      <form onSubmit={onSave}>
+        <h2>Preencha os dados abaixo para incluir um novo colaborador:</h2>
+        <Textfield
+          label="Nome"
+          placeholder="Digite seu Nome"
+          required={true}
+          value={nome}
+          onChanged={handleNomeChange}
+        />
+        <Textfield
+          label="Cargo"
+          placeholder="Digite seu cargo"
+          required={true}
+          value={cargo}
+          onChanged={handleCargoChange}
+        />
+        <Textfield
+          label="Imagem"
+          placeholder="Informe a URL da imagem"
+          value={imagem}
+          onChanged={handleImagemChange}
+        />
+        <SelectionList
+          label="Time"
+          itens={teams}
+          value={time}
+          onChanged={handleTimeChange}
+          required={true}
+        />
+        <CardInput
+          label="Cartão"
+          placeholder="informe o seu cartao"
+          value={cartao}
+          onChanged={handleCartaoChange}
+        />
+        <Button>Criar Card</Button>
+      </form>
     </section>
   );
 };
