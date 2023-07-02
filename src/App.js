@@ -2,11 +2,6 @@ import Banner from "./components/Banner/";
 import Form from "./components/Form";
 import Team from "./components/Team";
 import { useState } from "react";
-// o useRef verdadeiro
-// sao os amigos que fazemos 
-// na vida
-// Charlis 
-// Ston
 
 function App() {
   const teams = [
