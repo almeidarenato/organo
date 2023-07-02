@@ -15,10 +15,13 @@ const Form = ({ onRegister,teams }) => {
 
   const onSave = (evt) => {
     evt.preventDefault();
-    console.log("Log de Form");
-    console.log(evt);
-    console.log("Foi submetido ", nome, cargo, time, imagem, cartao);
     onRegister({ nome, cargo, time, imagem, cartao });
+    setNome('');
+    setCargo('');
+    setTime('');
+    setImagem('');
+    setCartao('');
+
   };
 
   const handleNomeChange = (valor) => {
