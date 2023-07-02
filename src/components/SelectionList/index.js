@@ -6,6 +6,7 @@ const SelectionList = ({label,itens,value,required,onChanged}) =>{
         <div className="selection-list">
             <label htmlFor="">{label}</label>
             <select name="" id="" value={value} required={required} onChange={evt => onChanged(evt.target.value)}> 
+                <option key="" value=""></option>
                 { itens.map((item)=> 
                 <option key={item}>{item}</option>
                 )}
