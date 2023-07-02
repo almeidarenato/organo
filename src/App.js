@@ -57,6 +57,7 @@ function App() {
           name={name}
           primaryColor={primaryColor}
           secondaryColor={secondaryColor}
+          employees={colaboradores.filter(colaborador => colaborador.time === name)}
         />
       ))}
     </div>
