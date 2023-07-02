@@ -1,4 +1,4 @@
-import Banner from "./components/Banner/";
+import Banner from "./components/Banner";
 import Form from "./components/Form";
 import Team from "./components/Team";
 import { useState } from "react";
@@ -47,10 +47,18 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Form onRegister={(colaborador) => onNewRegister(colaborador)} />
-      { teams.map(team =>
-      <Team key={team.name} name={team.name} primaryColor={team.primaryColor} secondaryColor={team.secondaryColor} />)
-      }
+      <Form
+        teams={teams.map((team) => team.name)}
+        onRegister={(colaborador) => onNewRegister(colaborador)}
+      />
+      {teams.map(({ name, primaryColor, secondaryColor }) => (
+        <Team
+          key={name}
+          name={name}
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
+        />
+      ))}
     </div>
   );
 }

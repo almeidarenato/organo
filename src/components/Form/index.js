@@ -5,16 +5,8 @@ import SelectionList from '../SelectionList';
 import Button from '../Button';
 import CardInput from '../CardInput';
 
-const teams = [
-  'Front-end',
-  'Back-end',
-  'Arquitetura',
-  'Devops',
-  'QA',
-  'Scrum'
-];
 
-const Form = ({ onRegister }) => {
+const Form = ({ onRegister,teams }) => {
   const [nome, setNome] = useState('');
   const [cargo, setCargo] = useState('');
   const [time, setTime] = useState('');
